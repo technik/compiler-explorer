@@ -1,6 +1,6 @@
 function runFrontendTest(name) {
     it(name, () => {
-        cy.window().then((win) => {
+        cy.window().then(win => {
             return win.compilerExplorerFrontendTesting.run(name);
         });
     });
@@ -12,4 +12,12 @@ describe('Frontendtestresults', () => {
     });
 
     runFrontendTest('HelloWorld');
+});
+
+describe('Motd testing', () => {
+    before(() => {
+        cy.visit('/');
+    });
+
+    runFrontendTest('motd');
 });
